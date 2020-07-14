@@ -7,13 +7,89 @@
 
 
 {% block content %}
-<h1> file Upload</h1>
-<form method ="post" enctype="multipart/form-data">
+            
+ <!-- ======= About Section ======= -->
+    <section id="about">
 
-    {% csrf_token %}
-	
-	{{ form|crispy }}
-	<button type="submit" class="btn btn-primary"> Upload file </button>
-</form>
+
+       <div class="description"><p>
+ 
+       </div>
+
+      <!-- ======= Testimonials Section ======= -->
+    <section id="testimonials">
+      <div class="container wow fadeInUp">
+
+   <br/>
+        <!--<h4>hngi7</h4> -->
+         By<a href="#"> HNGi7 Interns </a> | Updated 1 day ago </p>
+
+         <hr/>
+        <div class="row">
+
+          <div class="col-md-12">
+            <h3>Excel APi File Upload</h3>
+            <p>
+              Upload Excel file
+            </p>
+            <h4 class="section-title">  Your API > | Excel API</h4>
+            <p>
+
+      
+            <div class="section-title-divider"></div>
+            <p class="section-description">      <p>example.xlsx </p>
+              <div class="custom-file">
+              	<form method ="post" enctype="multipart/form-data">
+
+						    {% csrf_token %}
+							
+							{{ form|crispy }}
+							<button type="submit" class="btn btn-primary"> Upload file </button>
+						</form>
+
+						
+
+ </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-3">   
+      
+            <div class="profile">
+
+         
+          
+            </div>
+          </div>
+          <div class="col-md-9">
+            <div class="quote">
+           
+          </div>
+        </div>
+
+        <div class="row">
+
+          <div class="col-md-9">
+            <div class="quote">
+
+             
+            </div>
+         </div>
+          <div class="col-md-3">
+            <div class="profile">
+              <div class="pic"></div>
+     
+      
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End Testimonials Section -->
+
+
+
+
+
 
 {% endblock %}

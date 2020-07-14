@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.views.decorators.csrf import csrf_exempt
 import xlrd
-
+from django.shortcuts import  get_object_or_404
 from django.core.files.storage import FileSystemStorage 
 from .forms import FileForm 
 from .models import File
@@ -79,6 +79,77 @@ def budget(request):
         print("failed")
 
     
-def index(request):
+def excel_upload(request):
     name = " index"
     return render(request, 'index.html', {'name':name})
+
+# to acces the upload file and read excel
+"""
+def budget(request):
+    try:
+    
+        file = File.objects.all()
+       
+        # reading the excel file
+        df = pd.read_excel('(file)', usecols = "B:G",encoding='utf-8' )
+        # Dropping the unneccessary columns
+        data = df.dropna(axis = 0, how= "any")
+        data.columns = data.iloc[0]
+        data2 = data.iloc[1:,].reindex()    
+        # data3 = df.book.nrows
+        nrows = 10
+     
+        # here is month, the variable in which the month is stored in
+        #month = data2.columns[2]
+     
+        data2.columns = data2.columns.map(lambda x: x.replace('\n', ''))
+        data2.columns = ["sector", "budget", "allocation","total_allocation","balance","percentage"]
+        # we dont need percentage... dropping it
+        data2.drop(["percentage"], axis = 1, inplace = True)
+     
+     
+        final_data = data2.to_dict(orient = "records")
+        return render(request, 'budget.html', {'final_data': final_data})
+
+      
+       
+        print(final_data)
+    except KeyError:
+        print("failed")
+
+"""
+
+def excel_files(request,pk):
+    #get an instance of the file here... so i can access any of it's fields...
+    file = get_object_or_404(File,pk=pk)
+    
+    #where name_of_file is the name of the field on ur model
+    #file_path = file.name
+    file_path = file.xlsx 
+
+    try:
+       
+        # reading the excel file
+        df = pd.read_excel(file_path, usecols = "B:G",encoding='utf-8' )
+        # Dropping the unneccessary columns
+        data = df.dropna(axis = 0, how= "any")
+        data.columns = data.iloc[0]
+        data2 = data.iloc[1:,].reindex()    
+        # data3 = df.book.nrows
+        nrows = 10
+     
+        # here is month, the variable in which the month is stored in
+        #month = data2.columns[2]
+     
+        data2.columns = data2.columns.map(lambda x: x.replace('\n', ''))
+        data2.columns = ["sector", "budget", "allocation","total_allocation","balance","percentage"]
+        # we dont need percentage... dropping it
+        data2.drop(["percentage"], axis = 1, inplace = True)
+     
+     
+        final_data = data2.to_dict(orient = "records")
+        return render(request, 'excel_files.html', {'final_data': final_data})
+       
+        print(final_data)
+    except KeyError:
+        print("failed")

@@ -10,6 +10,8 @@ urlpatterns = [
     path('file_upload.html', views.file_upload, name="file_upload" ),
     path('file_list.html', views.file_list, name="file_list" ),
     path('budget.html', views.budget, name="budget" ),
+    #path('excel_files.html', views.excel_files, name="excel")
+    path('excel_files.html/<int:pk>', views.excel_files, name="excel_file")
 
 ]
 
