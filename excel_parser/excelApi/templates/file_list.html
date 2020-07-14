@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %}  {% endblock %}
+
+
+{% block content %}
+<h1> Uploaded file List</h1>
+<p><a href="{% url 'file_upload' %}" class ="btn btn-primary "> Upload file</a></p>
+<table class= "table">
+	<thead>
+		<tr>
+			<th>Name</th>
+			<th>Sector</th>
+			<th>Date</th>
+			<th>View enpoint </th>
+	</tr>
+</thead>
+<tbody>
+	{% for file in files %}
+	<tr>
+		<td> {{file.name }}</td>
+		<td> {{file.sector }}</td>
+		<td> {{file.upload_at }}</td>
+		<td> 
+			<a href="{{file.xlsx.url }}" class ="btn btn-primary btn-sm" target="blank"> view enpoint</a></td>
+	{% endfor %}
+
+</tbody>
+</table>
+
+{% endblock %}

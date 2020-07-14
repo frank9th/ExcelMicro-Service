@@ -1,0 +1,114 @@
+
+{% extends 'base.html' %}
+
+{% block title %} Excel-Api| Budget List  {% endblock %}
+
+{% block content %}
+
+             
+ <!-- ======= About Section ======= -->
+    <section id="about">
+
+
+       <div class="description"><p>
+        
+         <!-- <p class="active"><a href="#">Test Endpoints</a></p>-->
+          <!--<p>Excel API</p>
+         </ul>-->
+
+       </div>
+
+      <!-- ======= Testimonials Section ======= -->
+    <section id="testimonials">
+      <div class="container wow fadeInUp">
+
+   <br/>
+        <!--<h4>hngi7</h4> -->
+         By<a href="#"> HNGi7 Interns </a> | Updated 1 day ago </p>
+
+         <hr/>
+        <div class="row">
+          <div class="col-md-12">
+            <h3>Excel APi File Upload</h3>
+            <p>
+              Upload Excel file
+            </p>
+            <h4 class="section-title">  Your API > | Excel API</h4>
+      
+            <div class="section-title-divider"></div>
+            <p class="section-description">      <p>example.xlsx </p>
+              <div class="custom-file">
+
+<!--
+              <form method= "post" enctype="multipart/form-data">
+
+                        {% csrf_token %}
+                              <input type="file" class="custom-file-input" id="customFile" name="excel">
+                              <label class="custom-file-label" for="customFile">ATTACH FILE</label>
+                             <input class="form-control" type="text" placeholder="Enter xlsx file name" value="Sheet Name">
+                              <input class="form-control" type="date" placeholder="Enter file date" value="Sheet Date">
+                            </div> <br>
+                          <button type="submit" class="btn btn-secondary btn-lg btn-block">Process File</button>
+                              </div>
+                       </form>-->
+
+
+						<form method= "post" enctype="multipart/form-data">
+
+                        {% csrf_token %}
+                              <input type="file"  name="excel">
+                         
+                            </div> <br>
+                          <button type="submit">Process File</button>
+                              </div>
+                       </form>
+                       {% if url %}
+							<p> Uploaded file: <a href="{{ url }}"> {{ url }}</a></p>
+						{% endif %}
+
+
+
+
+    
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-3">   
+      
+            <div class="profile">
+         
+          
+            </div>
+          </div>
+          <div class="col-md-9">
+            <div class="quote">
+           
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-9">
+            <div class="quote">
+             
+            </div>
+         </div>
+          <div class="col-md-3">
+            <div class="profile">
+              <div class="pic"></div>
+     
+      
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End Testimonials Section -->
+
+
+
+
+
+
+
+{% endblock %}
