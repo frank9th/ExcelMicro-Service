@@ -26,7 +26,16 @@ SECRET_KEY = 'f8$86&00q6s2l#gb$0gr_1ew_23cflgjwe05(7dup28dt257r&'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['**.herokuapp.com', '127.0.0.1', 'localhost', 'excelapi.heroku.com' 'http://bsldi.org/excelapi'
+ALLOWED_HOSTS = ['**.herokuapp.com', '127.0.0.1', 'localhost', 
+
+
+'192.168.43.233:52101',
+'192.168.43.233',
+'52101',
+'localhost',
+'52017',
+'135', 
+'127.0.0.1',
 
 'bsldi.org/excelapi']
 
@@ -125,43 +134,35 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 #STATIC_URL = '/static/'
-
 STATIC_URL = '/static/'
+
 STATICFILES_DIRS = [
         os.path.join(BASE_DIR, 'static'),
 ]
-
-STATIC_URL = '/staticfiles/'
-STATICFILES_DIRS = [
-        os.path.join(BASE_DIR, 'static'),
-]
-
 
 MEDIA_URL = '/media/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
+
+# Simplified static file serving.
+# https://warehouse.python.org/project/whitenoise/
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 
+# Heroku: Update database configuration from $DATABASE_URL.
+import dj_database_url
+db_from_env = dj_database_url.config(conn_max_age=500)
+DATABASES['default'].update(db_from_env)
 
+# Static files (CSS, JavaScript, Images)
+# https://docs.djangoproject.com/en/2.1/howto/static-files/
 
-
-
-
-
-SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
-
-
+# The absolute path to the directory where collectstatic will collect static files for deployment.
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-STATIC_TMP = os.path.join(BASE_DIR, 'static')
-STATIC_URL = '/static/'
 
-os.makedirs(STATIC_TMP, exist_ok=True)
-os.makedirs(STATIC_ROOT, exist_ok=True)
-
+# The URL to use when referring to static files (where they will be served from)
 
 
 
