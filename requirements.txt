@@ -3,9 +3,13 @@ asgiref==3.2.10
 certifi==2020.6.20
 chardet==3.0.4
 dj-database-url==0.5.0
+dj-static==0.0.6
 Django==3.0.8
 django-crispy-forms==1.9.2
 django-heroku==0.3.1
+docopt==0.6.2
+gitignore==0.0.8
+gunicorn==20.0.4
 idna==2.10
 numpy==1.19.0
 pandas==1.0.0
@@ -16,6 +20,8 @@ pytz==2020.1
 requests==2.24.0
 six==1.15.0
 sqlparse==0.3.1
+static3==0.7.0
 urllib3==1.25.9
 whitenoise==5.1.0
 xlrd==1.2.0
+
