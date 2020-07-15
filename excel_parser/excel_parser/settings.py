@@ -26,7 +26,9 @@ SECRET_KEY = 'f8$86&00q6s2l#gb$0gr_1ew_23cflgjwe05(7dup28dt257r&'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['**.herokuapp.com', '127.0.0.1', 'localhost', 'excelapi.heroku.com']
+ALLOWED_HOSTS = ['**.herokuapp.com', '127.0.0.1', 'localhost', 'excelapi.heroku.com' 'http://bsldi.org/excelapi'
+
+'bsldi.org/excelapi']
 
 # Application definition
 
@@ -142,4 +144,34 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+
+
+
+
+
+
+
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_TMP = os.path.join(BASE_DIR, 'static')
+STATIC_URL = '/static/'
+
+os.makedirs(STATIC_TMP, exist_ok=True)
+os.makedirs(STATIC_ROOT, exist_ok=True)
+
+
+
+
+
+
+
+
+
+
+
+
+
 
