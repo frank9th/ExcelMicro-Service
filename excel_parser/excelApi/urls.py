@@ -15,7 +15,8 @@ urlpatterns = [
 
 ]
 
-
+'''
 # this should be used only on developement mode and not on production
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    '''
