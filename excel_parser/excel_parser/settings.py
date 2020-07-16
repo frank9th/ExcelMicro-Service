@@ -21,12 +21,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'f8$86&00q6s2l#gb$0gr_1ew_23cflgjwe05(7dup28dt257r&'
+SECRET_KEY = 'f8$86&11q6s2l#gb$0gr_1ew_23cflgjwn05(7dup28dt257r&'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['**.herokuapp.com', '127.0.0.1', 'localhost', 
+ALLOWED_HOSTS = ['excelservice.herokuapp.com', '127.0.0.1', 'localhost', 
 
 
 '192.168.43.233:52101',
