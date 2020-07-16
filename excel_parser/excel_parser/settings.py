@@ -24,7 +24,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'f8$86&11q6s2l#gb$0gr_1ew_23cflgjwn05(7dup28dt257r&'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+#DEBUG = True
+DEBUG = False 
 
 ALLOWED_HOSTS = ['excelservice.herokuapp.com', '127.0.0.1', 'localhost', 
 
