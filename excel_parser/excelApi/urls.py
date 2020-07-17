@@ -3,9 +3,18 @@ from django.urls import path, include
 from . import views 
 from django.conf import settings
 from django.conf.urls.static import static
+"""
+from rest_framework import routers 
+
+router = routers.DefaultRouter()
+router.register('file', views.FileView)
+#router.register('file', views.excel_files)
+"""
 
 urlpatterns = [
-    path('index.html', views.index, name="index" ),
+
+	#path('', include(Routers.urls)), 
+	path('index.html', views.index, name="index" ),
     path('upload_file.html', views.upload_file, name="upload_file" ),
     path('', views.file_upload, name="file_upload" ),
     path('file_list.html', views.file_list, name="file_list" ),

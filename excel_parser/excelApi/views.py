@@ -8,7 +8,18 @@ from .models import File
 import pandas as pd 
 import json
 # Create your views here.
+"""
+import requests
+from rest_framework import viewsets 
+from .serializers import FileSerializer
+from rest_framework.decorators import action
 
+
+class FileView(viewsets.ModelViewSet): 
+    queryset = Item.objects.all()
+    serializer_class = ItemSerializer
+
+"""
 
 def index(request):
     name = " index"
@@ -48,6 +59,7 @@ def file_upload(request):
 		return render(request, 'file_upload.html', {'form' : form})
 
 
+# ------- TO READ FROM A FILE PATH PASSED IN FROM THE BE-----
 
 def budget(request):
 
@@ -118,6 +130,10 @@ def budget(request):
         print("failed")
 
 """
+'''
+'''
+'''
+# ---- To read only FG excel whit specific colums ---
 
 def excel_files(request,pk):
     #get an instance of the file here... so i can access any of it's fields...
@@ -151,5 +167,28 @@ def excel_files(request,pk):
         return render(request, 'excel_files.html', {'final_data': final_data})
        
         print(final_data)
+    except KeyError:
+        print("failed")
+'''
+
+
+def excel_files(request,pk):
+    #get an instance of the file here... so i can access any of it's fields...
+    file = get_object_or_404(File,pk=pk)
+    
+    #where name_of_file is the name of the field on ur model
+    #file_path = file.name
+    file_path = file.xlsx 
+
+    try:
+       
+        # reading the excel file
+        excel_data_df = pd.read_excel(file_path, usecols = "B:G",encoding='utf-8' )
+
+
+        final_data = excel_data_df.to_json(orient = "table", index=None)
+        #final_data = data2.to_dict(orient = "records")
+        return render(request, 'excel_files.html', {'final_data': final_data})
+
     except KeyError:
         print("failed")

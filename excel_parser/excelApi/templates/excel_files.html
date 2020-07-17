@@ -12,17 +12,17 @@
 
 <div class="container">
 
-<h2> Excel_file list </h2>
+<h2> Json Excle file output</h2>
 
 
 
 	<table class= "table">	
 	<thead>
 			<tr>
+				{% for file in files %}
+					<th> Name of sheet:> {{file.name }} </th>
+				{% endfor %}
 
-				<th> name </th>
-
-			
 		<tr>
 				
 	</tr>
